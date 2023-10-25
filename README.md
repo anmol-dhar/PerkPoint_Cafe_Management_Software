@@ -1,1 +1,2 @@
 # PerkPoint: Cafe Billing Made Easy
+**PerkPoint** is a cafe billing project that simplifies the billing process for cafes. Developed using **JavaFX** for the user interface, it seamlessly connects to a **MySQL** database hosted on an **XAMPP** server, with easy management and interaction facilitated through **phpMyAdmin**. This project streamlines the billing, and database management aspects of a cafe, offering an efficient and user-friendly solution for cafe owners.
