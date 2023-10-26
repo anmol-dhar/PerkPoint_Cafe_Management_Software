@@ -14,12 +14,43 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class ApplicationController implements Initializable {
+
+    @FXML
+    private TextField fpAnswer;
+
+    @FXML
+    private Button fpBackButton;
+
+    @FXML
+    private Button fpChangePassButton;
+
+    @FXML
+    private PasswordField fpConfirmPassword;
+
+    @FXML
+    private Button fpNewPassBackButton;
+
+    @FXML
+    private AnchorPane fpNewPassForm;
+
+    @FXML
+    private PasswordField fpNewPassword;
+
+    @FXML
+    private Button fpProceedButton;
+
+    @FXML
+    private ComboBox<?> fpQuestionForm;
+
+    @FXML
+    private TextField fpUsername;
+
+    @FXML
+    private AnchorPane questionForm;
+
     @FXML
     private Hyperlink si_forgotPass;
 
@@ -34,6 +65,9 @@ public class ApplicationController implements Initializable {
 
     @FXML
     private TextField si_username;
+
+    @FXML
+    private Button side_AlreadyAccount;
 
     @FXML
     private Button side_CreateButton;
@@ -55,9 +89,6 @@ public class ApplicationController implements Initializable {
 
     @FXML
     private TextField su_signupUser;
-
-    @FXML
-    private Button side_AlreadyAccount;
 
     private Connection connect;
     private PreparedStatement prepare;
@@ -200,6 +231,109 @@ public class ApplicationController implements Initializable {
         su_signupQuestion.setItems(listData);
     }
 
+    public void SwitchForgotPassword(){
+        questionForm.setVisible(true);
+        si_loginForm.setVisible(false);
+
+        FPQuestionList();
+    }
+
+    public void FPQuestionList(){
+        List<String> listQ = new ArrayList<String>();
+
+        for(String data : questionList){
+            listQ.add(data);
+        }
+
+        ObservableList listData = FXCollections.observableArrayList(listQ);
+        fpQuestionForm.setItems(listData);
+    }
+
+    public void ProceedButton(){
+        if(fpUsername.getText().isEmpty() || fpQuestionForm.getSelectionModel().getSelectedItem() == null || fpAnswer.getText().isEmpty()){
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Please fill all blank fields");
+            alert.showAndWait();
+        }
+        else{
+            String selectData = "select username, question, answer from employee where username = ? and question = ? and answer = ?";
+            connect = database.connectDB();
+
+            try{
+                prepare = connect.prepareStatement(selectData);
+                prepare.setString(1, fpUsername.getText());
+                prepare.setString(2, (String) fpQuestionForm.getSelectionModel().getSelectedItem());
+                prepare.setString(3, fpAnswer.getText());
+
+                result = prepare.executeQuery();
+
+                if(result.next()){
+                    fpNewPassForm.setVisible(true);
+                    questionForm.setVisible(false);
+                }
+                else{
+                    alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error Message");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Incorrect Information");
+                    alert.showAndWait();
+                }
+            }
+            catch (Exception ex){
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    public void changePass(){
+        if(fpNewPassword.getText().isEmpty() || fpConfirmPassword.getText().isEmpty()){
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Please fill all blank fields");
+            alert.showAndWait();
+        }
+        else if(!Objects.equals(fpNewPassword.getText(), fpConfirmPassword.getText())){
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter same password in both fields");
+            alert.showAndWait();
+        }
+        else{
+            String updatePass = "update employee set password = '"+fpConfirmPassword.getText()+"' where username = '"+fpUsername.getText()+"'";
+            connect = database.connectDB();
+            try{
+                prepare = connect.prepareStatement(updatePass);
+                prepare.executeUpdate();
+
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Password Changed Successfully");
+                alert.showAndWait();
+
+                fpNewPassForm.setVisible(false);
+                si_loginForm.setVisible(true);
+            }
+            catch (Exception ex){
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    public void FPBackButton(){
+        questionForm.setVisible(false);
+        si_loginForm.setVisible(true);
+    }
+
+    public void FPNewBackButton(){
+        fpNewPassForm.setVisible(false);
+        questionForm.setVisible(true);
+    }
+
     public void switchForm(ActionEvent event){
 
         TranslateTransition slider = new TranslateTransition();
@@ -212,6 +346,10 @@ public class ApplicationController implements Initializable {
                 side_AlreadyAccount.setVisible(true);
                 side_CreateButton.setVisible(false);
 
+                questionForm.setVisible(false);
+                fpNewPassForm.setVisible(false);
+                si_loginForm.setVisible(true);
+
                 regQuestionList();
             });
             slider.play();
@@ -223,6 +361,8 @@ public class ApplicationController implements Initializable {
             slider.setOnFinished((ActionEvent e) ->{
                 side_AlreadyAccount.setVisible(false);
                 side_CreateButton.setVisible(true);
+
+                si_loginForm.setVisible(true);
             });
             slider.play();
         }
