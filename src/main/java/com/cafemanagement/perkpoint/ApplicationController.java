@@ -126,6 +126,9 @@ public class ApplicationController implements Initializable {
                     alert.setHeaderText(null);
                     alert.setContentText("Login Successful");
                     alert.showAndWait();
+
+                    si_username.setText("");
+                    si_password.setText("");
                 }
                 else{
                     alert = new Alert(Alert.AlertType.ERROR);
@@ -315,6 +318,16 @@ public class ApplicationController implements Initializable {
                 alert.setContentText("Password Changed Successfully");
                 alert.showAndWait();
 
+                si_username.setText("");
+                si_password.setText("");
+
+                fpUsername.setText("");
+                fpQuestionForm.getSelectionModel().clearSelection();
+                fpAnswer.setText("");
+
+                fpNewPassword.setText("");
+                fpConfirmPassword.setText("");
+
                 fpNewPassForm.setVisible(false);
                 si_loginForm.setVisible(true);
             }
@@ -325,11 +338,16 @@ public class ApplicationController implements Initializable {
     }
 
     public void FPBackButton(){
+        si_username.setText("");
+        si_password.setText("");
         questionForm.setVisible(false);
         si_loginForm.setVisible(true);
     }
 
     public void FPNewBackButton(){
+        fpUsername.setText("");
+        fpQuestionForm.getSelectionModel().clearSelection();
+        fpAnswer.setText("");
         fpNewPassForm.setVisible(false);
         questionForm.setVisible(true);
     }
@@ -343,6 +361,10 @@ public class ApplicationController implements Initializable {
             slider.setToX(300);
             slider.setDuration(Duration.seconds(.5));
             slider.setOnFinished((ActionEvent e) ->{
+
+                si_username.setText("");
+                si_password.setText("");
+
                 side_AlreadyAccount.setVisible(true);
                 side_CreateButton.setVisible(false);
 
@@ -359,6 +381,12 @@ public class ApplicationController implements Initializable {
             slider.setToX(0);
             slider.setDuration(Duration.seconds(.5));
             slider.setOnFinished((ActionEvent e) ->{
+
+                su_signupUser.setText("");
+                su_signupPass.setText("");
+                su_signupQuestion.getSelectionModel().clearSelection();
+                su_signupAnswer.setText("");
+
                 side_AlreadyAccount.setVisible(false);
                 side_CreateButton.setVisible(true);
 
