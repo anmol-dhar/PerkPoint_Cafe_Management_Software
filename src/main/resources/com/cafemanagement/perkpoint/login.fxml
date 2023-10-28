@@ -17,7 +17,7 @@
          <children>
             <AnchorPane fx:id="si_loginForm" layoutX="300.0" prefHeight="400.0" prefWidth="300.0" styleClass="white-form" stylesheets="@loginDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label layoutX="40.0" layoutY="83.0" styleClass="head-label" stylesheets="@loginDesign.css" text="Login Account" textFill="#764ba2">
+                  <Label layoutX="40.0" layoutY="83.0" styleClass="head-label" stylesheets="@loginDesign.css" text="Login Account" textFill="#087ca7">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -29,7 +29,7 @@
                </children></AnchorPane>
             <AnchorPane prefHeight="400.0" prefWidth="300.0" styleClass="white-form" stylesheets="@loginDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label layoutX="40.0" layoutY="52.0" styleClass="head-label" stylesheets="@loginDesign.css" text="Register Account" textFill="#764ba2">
+                  <Label layoutX="40.0" layoutY="52.0" styleClass="head-label" stylesheets="@loginDesign.css" text="Register Account" textFill="#087ca7">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -43,7 +43,7 @@
             </AnchorPane>
             <AnchorPane fx:id="questionForm" layoutX="300.0" layoutY="2.0" prefHeight="400.0" prefWidth="300.0" styleClass="white-form" stylesheets="@loginDesign.css" visible="false">
                <children>
-                  <Label layoutX="40.0" layoutY="69.0" styleClass="head-label" stylesheets="@loginDesign.css" text="Forgot Password" textFill="#764ba2">
+                  <Label layoutX="40.0" layoutY="69.0" styleClass="head-label" stylesheets="@loginDesign.css" text="Forgot Password" textFill="#087ca7">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -58,7 +58,7 @@
             </AnchorPane>
             <AnchorPane fx:id="fpNewPassForm" layoutX="300.0" layoutY="2.0" prefHeight="400.0" prefWidth="300.0" styleClass="white-form" stylesheets="@loginDesign.css" visible="false">
                <children>
-                  <Label layoutX="40.0" layoutY="69.0" styleClass="head-label" stylesheets="@loginDesign.css" text="Forgot Password" textFill="#764ba2">
+                  <Label layoutX="40.0" layoutY="69.0" styleClass="head-label" stylesheets="@loginDesign.css" text="Forgot Password" textFill="#087ca7">
                      <font>
                         <Font size="20.0" />
                      </font>
