@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.lang.String?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <BorderPane layoutX="399.0" layoutY="207.0" prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <left>
+                  <AnchorPane prefHeight="600.0" prefWidth="222.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="11.0" layoutY="191.0" prefHeight="600.0" prefWidth="222.4" styleClass="nav-form" stylesheets="@MainFrameDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="11.0" layoutY="14.0" prefHeight="87.0" prefWidth="222.0" styleClass="header" stylesheets="@MainFrameDesign.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label alignment="CENTER" layoutX="60.0" layoutY="14.0" text="PerkPoint" textFill="WHITE">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="21.0" layoutY="49.0" text="Cafe Billing Made Easy" textFill="WHITE">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <Label layoutX="19.0" layoutY="124.0" text="Welcome, " textFill="WHITE">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font></Label>
+                              <Label layoutX="93.0" layoutY="121.0" text="Admin" textFill="WHITE">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font></Label>
+                              <Button layoutX="10.0" layoutY="198.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="201.0" styleClass="side-panel-button" stylesheets="@MainFrameDesign.css" text="Dashboard" />
+                              <Button layoutX="10.0" layoutY="249.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="201.0" styleClass="side-panel-button" stylesheets="@MainFrameDesign.css" text="Inventory" />
+                              <Button layoutX="10.0" layoutY="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="201.0" styleClass="side-panel-button" stylesheets="@MainFrameDesign.css" text="Menu" />
+                              <Button layoutX="10.0" layoutY="351.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="201.0" styleClass="side-panel-button" stylesheets="@MainFrameDesign.css" text="Customers" />
+                              <Button layoutX="18.0" layoutY="544.0" mnemonicParsing="false" styleClass="sign-out-button" stylesheets="@MainFrameDesign.css" textFill="WHITE" AnchorPane.bottomAnchor="24.0">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="SIGN_OUT" size="2em" styleClass="textfield" />
+                                 </graphic>
+                              </Button>
+                              <Label layoutX="64.0" layoutY="547.1999999999999" text="Sign Out" textFill="WHITE" AnchorPane.bottomAnchor="27.200000000000045">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="339.0" layoutY="200.0" prefHeight="600.0" prefWidth="877.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="169.0" prefWidth="850.0" stylesheets="@MainFrameDesign.css" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="12.800000000000068" AnchorPane.topAnchor="14.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="radius" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <ScrollPane layoutX="256.0" layoutY="-15.0" prefHeight="185.6" prefWidth="850.4" styleClass="transparent" stylesheets="@MainFrameDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <content>
+                                          <AnchorPane prefHeight="153.0" prefWidth="1015.0">
+                                             <children>
+                                                <AnchorPane layoutX="14.0" layoutY="9.0" prefHeight="134.0" prefWidth="252.0" styleClass="nav-form" stylesheets="@MainFrameDesign.css">
+                                                   <children>
+                                                      <FontAwesomeIcon fill="WHITE" glyphName="USERS" layoutX="14.0" layoutY="88.0" size="5em" />
+                                                      <Label layoutX="91.0" layoutY="97.0" text="Number of Customer" textFill="WHITE">
+                                                         <font>
+                                                            <Font size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label alignment="CENTER_RIGHT" layoutX="88.0" layoutY="14.0" prefHeight="22.0" prefWidth="146.0" text="0" textFill="WHITE">
+                                                         <font>
+                                                            <Font size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="285.0" layoutY="9.0" prefHeight="134.0" prefWidth="252.0" styleClass="nav-form" stylesheets="@MainFrameDesign.css">
+                                                   <children>
+                                                      <FontAwesomeIcon fill="WHITE" glyphName="RUPEE" layoutX="14.0" layoutY="88.0" size="5em" />
+                                                      <Label layoutX="74.0" layoutY="97.0" text="Today's Income" textFill="WHITE">
+                                                         <font>
+                                                            <Font size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label alignment="CENTER_RIGHT" layoutX="88.0" layoutY="14.0" prefHeight="22.0" prefWidth="146.0" text="₹ 0" textFill="WHITE">
+                                                         <font>
+                                                            <Font size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="557.0" layoutY="9.0" prefHeight="134.0" prefWidth="252.0" styleClass="nav-form" stylesheets="@MainFrameDesign.css">
+                                                   <children>
+                                                      <FontAwesomeIcon fill="WHITE" glyphName="MONEY" layoutX="14.0" layoutY="88.0" size="5em" />
+                                                      <Label layoutX="108.0" layoutY="97.0" text="Total Income" textFill="WHITE">
+                                                         <font>
+                                                            <Font size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label alignment="CENTER_RIGHT" layoutX="88.0" layoutY="14.0" prefHeight="22.0" prefWidth="146.0" text="₹ 0" textFill="WHITE">
+                                                         <font>
+                                                            <Font size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="828.0" layoutY="9.0" prefHeight="134.0" prefWidth="252.0" styleClass="nav-form" stylesheets="@MainFrameDesign.css">
+                                                   <children>
+                                                      <FontAwesomeIcon fill="WHITE" glyphName="SHOPPING_CART" layoutX="14.0" layoutY="88.0" size="5em" />
+                                                      <Label layoutX="77.0" layoutY="97.0" text="Number of Sold Products" textFill="WHITE">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label alignment="CENTER_RIGHT" layoutX="88.0" layoutY="14.0" prefHeight="22.0" prefWidth="146.0" text="0" textFill="WHITE">
+                                                         <font>
+                                                            <Font size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="14.0" layoutY="205.0" prefHeight="382.0" prefWidth="850.0" stylesheets="@MainFrameDesign.css" AnchorPane.bottomAnchor="12.600000000000023" AnchorPane.leftAnchor="14.4" AnchorPane.rightAnchor="12.799999999999955" AnchorPane.topAnchor="204.80000000000007">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="radius" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <AnchorPane layoutX="14.0" layoutY="12.8" prefHeight="355.0" prefWidth="442.0" stylesheets="@MainFrameDesign.css" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="394.0" AnchorPane.topAnchor="13.0">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                          <String fx:value="radius" />
+                                       </styleClass>
+                                       <children>
+                                          <AreaChart layoutX="-14.0" layoutY="-13.0" prefHeight="387.2" prefWidth="486.4000000000001" title="Income Chart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </AreaChart>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="509.0" layoutY="12.8" prefHeight="355.0" prefWidth="359.0" stylesheets="@MainFrameDesign.css" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="13.0">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                          <String fx:value="radius" />
+                                       </styleClass>
+                                       <children>
+                                          <BarChart layoutX="-115.0" layoutY="-53.0" prefHeight="355.2" prefWidth="385.6" title="Customer's Chart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </BarChart>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                              <Separator layoutX="14.0" layoutY="193.0" prefHeight="5.0" prefWidth="852.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="11.200000000000045" AnchorPane.topAnchor="193.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

@@ -1,0 +1,52 @@
+.header{
+    -fx-background-color: linear-gradient(to bottom right, #09508f, #064276);
+    -fx-border-color: #ffffff;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.nav-form{
+    -fx-background-color: linear-gradient(to bottom right, #087ca7, #004385);
+}
+
+.side-panel-button{
+    -fx-background-color: linear-gradient(to bottom right, #054075, #022f57);
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+}
+
+.side-panel-button:hover{
+    -fx-background-color: #05b2dc;
+}
+
+.sign-out-button{
+    -fx-background-color: #21991f;
+    -fx-cursor: hand;
+}
+
+.sign-out-button:hover{
+    -fx-background-color: #bf040a;
+}
+
+.shadow{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 5,0,0,0);
+}
+
+.textfield{
+    -fx-background-color: transparent;
+    -fx-border-color: linear-gradient(to bottom right, #087ca7, #004385);
+    -fx-border-width: 0.5px;
+}
+
+.white-bg{
+    -fx-background-color: #ffffff
+}
+
+.radius{
+    -fx-background-radius: 8px;
+}
+
+.transparent{
+    -fx-background-color: transparent;
+}
