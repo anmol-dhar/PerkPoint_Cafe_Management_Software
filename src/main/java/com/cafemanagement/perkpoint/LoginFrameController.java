@@ -5,9 +5,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.net.URL;
@@ -16,7 +20,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.*;
 
-public class ApplicationController implements Initializable {
+public class LoginFrameController implements Initializable {
 
     @FXML
     private TextField fpAnswer;
@@ -111,7 +115,7 @@ public class ApplicationController implements Initializable {
         else{
             String selectLoginData = "select username, password from employee where username = ? and password = ?";
 
-            connect = database.connectDB();
+            connect = Database.connectDB();
             try{
 
                 prepare = connect.prepareStatement(selectLoginData);
@@ -129,6 +133,19 @@ public class ApplicationController implements Initializable {
 
                     si_username.setText("");
                     si_password.setText("");
+
+                    Parent root = FXMLLoader.load(getClass().getResource("MainFrame.fxml"));
+
+                    Stage stage = new Stage();
+                    Scene scene = new Scene(root);
+
+                    stage.setTitle("PerkPoint Dashboard");
+
+                    stage.setScene(scene);
+                    stage.show();
+
+                    si_loginButton.getScene().getWindow().hide();
+
                 }
                 else{
                     alert = new Alert(Alert.AlertType.ERROR);
@@ -157,7 +174,7 @@ public class ApplicationController implements Initializable {
         }
         else{
             String reqData = "insert into employee (username, password, question, answer, date)" + "values(?,?,?,?,?)";
-            connect = database.connectDB();
+            connect = Database.connectDB();
 
             try{
                 String checkUsername = "select username from employee where username = '"+su_signupUser.getText()+"'";
@@ -262,7 +279,7 @@ public class ApplicationController implements Initializable {
         }
         else{
             String selectData = "select username, question, answer from employee where username = ? and question = ? and answer = ?";
-            connect = database.connectDB();
+            connect = Database.connectDB();
 
             try{
                 prepare = connect.prepareStatement(selectData);
@@ -307,7 +324,7 @@ public class ApplicationController implements Initializable {
         }
         else{
             String updatePass = "update employee set password = '"+fpConfirmPassword.getText()+"' where username = '"+fpUsername.getText()+"'";
-            connect = database.connectDB();
+            connect = Database.connectDB();
             try{
                 prepare = connect.prepareStatement(updatePass);
                 prepare.executeUpdate();

@@ -1,7 +1,7 @@
 package com.cafemanagement.perkpoint;
 import java.sql.*;
 
-public class database {
+public class Database {
 
     public static Connection connectDB() {
 
