@@ -23,83 +23,24 @@ import java.util.*;
 public class LoginFrameController implements Initializable {
 
     @FXML
-    private TextField fpAnswer;
+    private TextField si_username, su_signupUser, su_signupAnswer, fpUsername, fpAnswer;
 
     @FXML
-    private Button fpBackButton;
+    private PasswordField si_password, su_signupPass, fpNewPassword, fpConfirmPassword;
 
     @FXML
-    private Button fpChangePassButton;
+    private AnchorPane side_form, questionForm, si_loginForm, fpNewPassForm;
 
     @FXML
-    private PasswordField fpConfirmPassword;
+    private ComboBox<?> fpQuestionForm, su_signupQuestion;
 
     @FXML
-    private Button fpNewPassBackButton;
-
-    @FXML
-    private AnchorPane fpNewPassForm;
-
-    @FXML
-    private PasswordField fpNewPassword;
-
-    @FXML
-    private Button fpProceedButton;
-
-    @FXML
-    private ComboBox<?> fpQuestionForm;
-
-    @FXML
-    private TextField fpUsername;
-
-    @FXML
-    private AnchorPane questionForm;
-
-    @FXML
-    private Hyperlink si_forgotPass;
-
-    @FXML
-    private Button si_loginButton;
-
-    @FXML
-    private AnchorPane si_loginForm;
-
-    @FXML
-    private PasswordField si_password;
-
-    @FXML
-    private TextField si_username;
-
-    @FXML
-    private Button side_AlreadyAccount;
-
-    @FXML
-    private Button side_CreateButton;
-
-    @FXML
-    private AnchorPane side_form;
-
-    @FXML
-    private TextField su_signupAnswer;
-
-    @FXML
-    private Button su_signupButton;
-
-    @FXML
-    private PasswordField su_signupPass;
-
-    @FXML
-    private ComboBox<?> su_signupQuestion;
-
-    @FXML
-    private TextField su_signupUser;
+    private Button si_loginButton, side_AlreadyAccount, side_CreateButton;
 
     private Connection connect;
     private PreparedStatement prepare;
     private ResultSet result;
-
     public Alert alert;
-
 
     public void loginButton(){
 
@@ -125,6 +66,9 @@ public class LoginFrameController implements Initializable {
                 result = prepare.executeQuery();
 
                 if(result.next()){
+
+                    Data.username = si_username.getText();
+
                     alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Information Message");
                     alert.setHeaderText(null);
@@ -153,6 +97,10 @@ public class LoginFrameController implements Initializable {
                     alert.setHeaderText(null);
                     alert.setContentText("Incorrect Username or Password");
                     alert.showAndWait();
+
+                    si_username.setText("");
+                    si_password.setText("");
+
                 }
 
             }
@@ -239,7 +187,6 @@ public class LoginFrameController implements Initializable {
     }
 
     private String[] questionList = {"What is your favorite Color?", "What is your favorite food?", "What is your birth date?"};
-
     public void regQuestionList(){
         List<String> listQ = new ArrayList<>();
 
@@ -251,15 +198,8 @@ public class LoginFrameController implements Initializable {
         su_signupQuestion.setItems(listData);
     }
 
-    public void SwitchForgotPassword(){
-        questionForm.setVisible(true);
-        si_loginForm.setVisible(false);
-
-        FPQuestionList();
-    }
-
     public void FPQuestionList(){
-        List<String> listQ = new ArrayList<String>();
+        List<String> listQ = new ArrayList<>();
 
         for(String data : questionList){
             listQ.add(data);
@@ -267,6 +207,13 @@ public class LoginFrameController implements Initializable {
 
         ObservableList listData = FXCollections.observableArrayList(listQ);
         fpQuestionForm.setItems(listData);
+    }
+
+    public void SwitchForgotPassword(){
+        questionForm.setVisible(true);
+        si_loginForm.setVisible(false);
+
+        FPQuestionList();
     }
 
     public void ProceedButton(){
@@ -415,8 +362,10 @@ public class LoginFrameController implements Initializable {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle rb){
+    public void initialize(URL location, ResourceBundle resources){
 
+        regQuestionList();
+        FPQuestionList();
 
     }
 
